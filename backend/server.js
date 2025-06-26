@@ -5,10 +5,16 @@ const path = require('path');
 const fs = require('fs');
 const Tesseract = require('tesseract.js');
 const sharp = require('sharp');
+const fetch = require('node-fetch'); // 👈 Ensure this is installed in package.json
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Health check root route for Render
+app.get("/", (req, res) => {
+  res.send("✅ Prescripto AI backend is running");
+});
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
@@ -93,7 +99,7 @@ app.post('/api/translate', async (req, res) => {
     const { text, targetLanguage } = req.body;
     const apiKey = process.env.GROQ_API_KEY;
 
-    if (!text || !targetLanguage) {
+    if (!text || !targetLanguage || !apiKey) {
       return res.status(400).json({ success: false, error: 'Missing fields' });
     }
 
@@ -163,11 +169,11 @@ app.post('/api/correct-voice', async (req, res) => {
   }
 });
 
+// Optional health route for external checks
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Groq-powered backend ready' });
+  res.json({ status: 'ok', message: 'Groq-powered backend ready ✅' });
 });
 
 app.listen(PORT, () => {
   console.log(`🚀 Health Translator API running on port ${PORT}`);
-  console.log(`🔗 API Base URL: http://localhost:${PORT}/api`);
 });
