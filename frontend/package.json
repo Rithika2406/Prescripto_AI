@@ -1,7 +1,6 @@
 {
   "name": "myapp",
-  "homepage": "https://pradesha-github.github.io/Prescripto",
-
+  "homepage": "https://pradesha-github.github.io/AIProject",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
