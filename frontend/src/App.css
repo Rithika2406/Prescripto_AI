@@ -1,0 +1,205 @@
+/* App.css – Plain CSS for AI Translator App */
+
+.app-container {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #e6f7ff, #e8f5e9);
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 4px solid #4caf50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+  color: #333;
+}
+
+.header p {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.icon, .icon-lg, .icon-sm {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-lg {
+  width: 48px;
+  height: 48px;
+  color: #d66363;
+}
+
+.icon-sm {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.api-status, .community-status {
+  background: #e3f2fd;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  color: #1976d2;
+  cursor: default;
+}
+
+.language-selection {
+  padding: 2rem;
+  text-align: center;
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.language-button {
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #1b4db9;
+}
+
+.language-button:hover {
+  border-color: #64b5f6;
+  background: #fa1313;
+}
+
+.language-button.active {
+  border-color: #1976d2;
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.input-sections {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 2rem;
+}
+
+.input-box {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.upload-area {
+  border: 2px dashed #ccc;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
+  resize: none;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  background: #1976d2;
+  color: white;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #1565c0;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.output-box {
+  margin: 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.output-section {
+  margin-top: 1.5rem;
+}
+
+.output-section h4 {
+  margin-bottom: 0.5rem;
+  color: #1976d2;
+  font-size: 1.1rem;
+}
+
+.output-section p {
+  color: #333;
+  line-height: 1.5;
+}
+
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.error-box {
+  background: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  margin: 1rem 2rem;
+  border-left: 6px solid #c62828;
+  border-radius: 0.5rem;
+}
+
+.loading-box {
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 1rem;
+  margin: 1rem 2rem;
+  border-left: 6px solid #1976d2;
+  border-radius: 0.5rem;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
