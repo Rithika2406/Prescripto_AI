@@ -12,6 +12,8 @@ const App = () => {
   const [error, setError] = useState('');
   const fileInputRef = useRef(null);
 
+  const backendBaseUrl = 'https://prescripto-ai.onrender.com';
+
   const languages = {
     tamil: { name: 'தமிழ்', code: 'ta-IN', openaiCode: 'Tamil' },
     hindi: { name: 'हिन्दी', code: 'hi-IN', openaiCode: 'Hindi' },
@@ -29,7 +31,7 @@ const App = () => {
       const formData = new FormData();
       formData.append('image', file);
 
-      const response = await fetch('http://localhost:5000/api/ocr', {
+      const response = await fetch(`${backendBaseUrl}/api/ocr`, {
         method: 'POST',
         body: formData
       });
@@ -59,7 +61,7 @@ const App = () => {
       setPrescriptionText('Processing voice input...');
 
       try {
-        const response = await fetch('http://localhost:5000/api/correct-voice', {
+        const response = await fetch(`${backendBaseUrl}/api/correct-voice`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: rawText })
@@ -92,7 +94,7 @@ const App = () => {
       setLoadingStage('Processing...');
       setError('');
 
-      const response = await fetch('http://localhost:5000/api/translate', {
+      const response = await fetch(`${backendBaseUrl}/api/translate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -123,7 +125,7 @@ const App = () => {
         .replace(/\*\*/g, '')
         .replace(/\*/g, '')
         .replace(/_/g, '')
-        .replace(/•/g, '-')
+        .replace(/\u2022/g, '-')
         .replace(/\n/g, ' ');
 
       let matchedVoice = voices.find(v => v.lang === targetLangCode || v.lang.startsWith(targetLangCode));
@@ -188,13 +190,7 @@ const App = () => {
             <div className="upload-area">
               <Camera className="icon-lg" />
               <p>Upload image (JPG/PNG)</p>
-              <input
-                type="file"
-                ref={fileInputRef}
-                accept="image/*"
-                onChange={handleFileUpload}
-                hidden
-              />
+              <input type="file" ref={fileInputRef} accept="image/*" onChange={handleFileUpload} hidden />
               <button onClick={() => fileInputRef.current.click()} disabled={isLoading}>Choose File</button>
             </div>
           </div>
