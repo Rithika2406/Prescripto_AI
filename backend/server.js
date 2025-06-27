@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 const allowedOrigins = [
   'http://localhost:3000', // local dev
-  'https://pradesha.github.io/Prescripto-AI', // ✅ your GitHub Pages frontend
+  'https://pradeshap.github.io', // ✅ your GitHub Pages frontend
 ];
 
 app.use(cors({
