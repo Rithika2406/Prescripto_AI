@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
 
 const allowedOrigins = [
   'http://localhost:3000', // local dev
+  'https://rithika2406.github.io',
    'https://rithika2406.github.io/Prescripto_AI', // ✅ your GitHub Pages frontend
 ];
 
