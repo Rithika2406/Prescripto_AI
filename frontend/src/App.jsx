@@ -12,7 +12,7 @@ const App = () => {
   const [error, setError] = useState('');
   const fileInputRef = useRef(null);
 
-  const backendBaseUrl = "https://prescripto-ai.onrender.com";
+  const backendBaseUrl = "https://prescripto-ai-1dwj.onrender.com";
 
   const languages = {
     tamil: { name: 'தமிழ்', code: 'ta-IN', openaiCode: 'Tamil' },
