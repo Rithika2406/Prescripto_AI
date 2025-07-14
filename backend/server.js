@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const Tesseract = require('tesseract.js');
 const sharp = require('sharp');
-const fetch = require('node-fetch'); // 👈 Ensure this is installed in package.json
+const fetch = require('node-fetch'); 
 require('dotenv').config();
 
 const app = express();
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 const allowedOrigins = [
   'http://localhost:3000', // local dev
-  'https://Rithika2406.github.io', // ✅ your GitHub Pages frontend
+    'https://Rithika2406-github.github.io', // ✅ your GitHub Pages frontend
 ];
 
 app.use(cors({
